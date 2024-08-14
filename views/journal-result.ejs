@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/css/result.svg'); /* Path to your SVG background image */
+            background-size: 60% auto; /* Scale the image to cover the entire page */
+            background-position: right center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            background-attachment: fixed; /* Fix the background image */
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.613); /* White background with slight opacity */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h2, h3 {
+            margin: 20px 0;
+            color: #007bff;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Journal Entry</h2>
+        <p><%= entry %></p>
+
+        <h3>Sentiment Analysis Result</h3>
+        <% if (sentiment > 0) { %>
+            <p style="color: green;">Your entry has a positive sentiment.</p>
+        <% } else if (sentiment < 0) { %>
+            <p style="color: red;">Your entry has a negative sentiment. Remember, it's okay to have bad days, and we're here for you.</p>
+        <% } else { %>
+            <p style="color: gray;">Your entry has a neutral sentiment.</p>
+        <% } %>
+        <h3>Personalized Recommendation</h3>
+        <p><%= recommendation %></p>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>
